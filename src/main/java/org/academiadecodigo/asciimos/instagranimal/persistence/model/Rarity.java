@@ -1,5 +1,8 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(using = Deserializer.class)
 public enum Rarity {
 
     LEGENDARY(100),
@@ -12,6 +15,14 @@ public enum Rarity {
 
     Rarity(int value) {
         this.value = value;
+    }
+
+    public static Rarity fromText(String text) {
+        switch (text) {
+            case "LEGENDARY":
+                return LEGENDARY;
+        }
+        return null;
     }
 
     public int getValue() {
