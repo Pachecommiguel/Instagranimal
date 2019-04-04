@@ -1,10 +1,12 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "user")
@@ -17,7 +19,7 @@ public class User {
     private String lastName;
     private String email;
     private String phone;
-    private Integer rating;
+    private Integer rating = 0;
 
     @OneToMany(
             // propagate changes on customer entity to account entities
@@ -33,16 +35,16 @@ public class User {
             // fetch accounts from database together with user
             fetch = FetchType.EAGER
     )
-    private Set<Animal> animals;
+    private Set<Animal> animals = new HashSet<>();
 
 
     @CreationTimestamp
     private Date creationTime;
 
-
-
-
-
+    @JsonIgnore
+    public Date getCreationTime() {
+        return creationTime;
+    }
 
     public String getUsername() {
         return username;
@@ -92,12 +94,14 @@ public class User {
         this.rating = rating;
     }
 
+    @JsonIgnore
     public Set<Animal> getAnimals() {
         return animals;
     }
 
-    public Date getCreationTime() {
-        return creationTime;
+    public void addAnimal(Animal animal) {
+        animals.add(animal);
+        rating += animal.getRarity().getValue();
     }
 
 

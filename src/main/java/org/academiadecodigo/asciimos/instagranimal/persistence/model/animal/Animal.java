@@ -1,6 +1,7 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.model.animal;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.Rarity;
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
 
@@ -13,15 +14,16 @@ public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String specie;
-    private String family;
-    private Rarity rarity;
+    private String species;
     private String photoLink;
     private String photoLocation;
+    private String family;
+    private Rarity rarity;
 
     @ManyToOne
     private User user;
 
+    @JsonIgnore
     public User getUser() {
         return user;
     }
@@ -38,12 +40,12 @@ public class Animal {
         this.id = id;
     }
 
-    public String getSpecie() {
-        return specie;
+    public String getSpecies() {
+        return species;
     }
 
-    public void setSpecie(String specie) {
-        this.specie = specie;
+    public void setSpecies(String species) {
+        this.species = species;
     }
 
     public String getFamily() {

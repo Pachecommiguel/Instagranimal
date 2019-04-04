@@ -13,4 +13,8 @@ public enum Rarity {
     Rarity(int value) {
         this.value = value;
     }
+
+    public int getValue() {
+        return value;
+    }
 }

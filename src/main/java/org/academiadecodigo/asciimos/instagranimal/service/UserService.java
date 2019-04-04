@@ -19,7 +19,7 @@ public class UserService {
     }
 
     @Transactional
-    public User get(String username) {
+    public User getUser(String username) {
         return userDao.findByUsername(username);
     }
 
@@ -29,7 +29,12 @@ public class UserService {
     }
 
     @Transactional
-    public void save(User user){
-        userDao.save(user);
+    public void saveUser(User user){
+        userDao.saveUser(user);
+    }
+
+    @Transactional
+    public void deleteUser(String username){
+        userDao.deleteUser(username);
     }
 }

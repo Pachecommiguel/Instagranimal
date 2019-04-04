@@ -26,13 +26,4 @@ public abstract class AbstractDao<T> implements Dao<T> {
 
     }
 
-    @Override
-    public T save(T modelObject) {
-        return em.merge(modelObject);
-    }
-
-    @Override
-    public void delete(Integer id) {
-        em.remove(em.find(modelType, id));
-    }
 }

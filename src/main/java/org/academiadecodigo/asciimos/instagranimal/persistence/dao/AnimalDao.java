@@ -13,4 +13,5 @@ public class AnimalDao extends AbstractDao<Animal> {
     public Animal findById(Integer id) {
         return em.find(Animal.class, id);
     }
+
 }

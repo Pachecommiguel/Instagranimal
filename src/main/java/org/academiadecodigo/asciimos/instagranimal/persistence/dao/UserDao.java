@@ -14,4 +14,12 @@ public class UserDao extends AbstractDao<User> {
     public User findByUsername(String username) {
         return em.find(User.class, username);
     }
+
+    public void deleteUser(String username) {
+        em.remove(findByUsername(username));
+    }
+
+    public void saveUser(User user) {
+        em.merge(user);
+    }
 }
