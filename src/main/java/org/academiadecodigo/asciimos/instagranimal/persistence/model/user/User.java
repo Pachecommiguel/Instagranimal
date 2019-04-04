@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 @Entity(name = "user")
@@ -104,5 +105,16 @@ public class User {
         rating += animal.getRarity().getValue();
     }
 
+
+    public Animal getAnimal(Integer id){
+
+        for (Animal animal : animals) {
+            if(animal.getId().equals(id)) {
+                return animal;
+            }
+        }
+
+        return null;
+    }
 
 }
