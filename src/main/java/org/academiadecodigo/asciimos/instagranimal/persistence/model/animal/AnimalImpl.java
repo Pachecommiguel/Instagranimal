@@ -3,6 +3,7 @@ package org.academiadecodigo.asciimos.instagranimal.persistence.model.animal;
 
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.Rarity;
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.UserImpl;
 
 import javax.persistence.*;
 
@@ -16,17 +17,17 @@ public class AnimalImpl implements Animal {
     private String specie;
     private String family;
     private Rarity rarity;
-    private String photo;
+    private String photoLink;
     private String photoLocation;
 
     @ManyToOne
-    private User user;
+    private UserImpl user;
 
     public User getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserImpl user) {
         this.user = user;
     }
 
@@ -62,12 +63,12 @@ public class AnimalImpl implements Animal {
         this.rarity = rarity;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getPhotoLink() {
+        return photoLink;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPhotoLink(String photo) {
+        this.photoLink = photo;
     }
 
     public String getPhotoLocation() {

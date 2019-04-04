@@ -1,6 +1,6 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.model.user;
 
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.AnimalImpl;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -33,7 +33,7 @@ public class UserImpl implements User {
             // fetch accounts from database together with user
             fetch = FetchType.EAGER
     )
-    private Set<Animal> animals;
+    private Set<AnimalImpl> animals;
 
 
     @CreationTimestamp
@@ -92,7 +92,7 @@ public class UserImpl implements User {
         this.rating = rating;
     }
 
-    public Set<Animal> getAnimals() {
+    public Set<AnimalImpl> getAnimals() {
         return animals;
     }
 
