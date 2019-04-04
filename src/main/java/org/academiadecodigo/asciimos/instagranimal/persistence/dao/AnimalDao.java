@@ -1,7 +1,9 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.dao;
 
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AnimalDao extends AbstractDao<Animal> {
 
     public AnimalDao() {

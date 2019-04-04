@@ -1,7 +1,9 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.dao;
 
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserDao extends AbstractDao<User> {
 
     public UserDao() {

@@ -14,6 +14,7 @@
     <!-- Base package to search for spring beans -->
     <context:component-scan base-package="org.academiadecodigo.asciimos.instagranimal"/>
 
+    <bean class="org.academiadecodigo.asciimos.instagranimal.persistence.Main"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
