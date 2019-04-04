@@ -8,7 +8,7 @@
     <!-- Use spring servlet for all requests, including static resources -->
     <mvc:default-servlet-handler/>
 
-    <!-- UserImpl @Controller, @Service annotations -->
+    <!-- User @Controller, @Service annotations -->
     <mvc:annotation-driven/>
 
     <!-- Base package to search for spring beans -->
