@@ -1,13 +1,34 @@
-package org.academiadecodigo.asciimos.instagranimal.persistence.model;
+package org.academiadecodigo.asciimos.instagranimal.persistence.model.animal;
 
+
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.Rarity;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
+
+import javax.persistence.*;
+
+@Entity(name = "animal")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class AnimalImpl implements Animal {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String specie;
     private String family;
     private Rarity rarity;
     private String photo;
     private String photoLocation;
+
+    @ManyToOne
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getId() {
         return id;
