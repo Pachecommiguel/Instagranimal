@@ -49,7 +49,6 @@
         <property name="password" value=""/>
 
         <!-- c3p0 database connection pool management properties -->
-        <property name="maxPoolSize" value="10"/>
         <property name="acquireIncrement" value="1"/>
         <property name="maxStatements" value="0"/>
 
