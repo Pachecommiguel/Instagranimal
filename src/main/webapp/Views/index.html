@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <title>InstagrAnimal</title>
+</head>
+
+
+
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <h1 class="appName">InstagrAnimal</h1>
+            </div>
+            <div class="profile">
+
+                <div class="profile-image">
+
+                    <img src="https://assets.gitlab-static.net/uploads/-/system/user/avatar/3413637/avatar.png" alt="">
+
+                </div>
+
+                <div class="profile-user-settings">
+
+                    <h1 class="profile-user-name"></h1>
+                    <h1 class="profile-user-rating"></h1>
+
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <div class="gallery">
+
+            </div>
+
+        </div>
+        <div>
+        <tr class="form">
+            <th>Animal URL</th>
+            <th>Specie</th>
+            <th>Location</th>
+            <th>Rarity</th>
+            <th>family</th>
+        </tr>
+        <tr>
+            <form id="form">
+                <td><input type="text" id="photoLink"></td>
+                <td><input type="text" id="species"></td>
+                <td><input type="text" id="photoLocation"></td>
+                <td><input type="text" id="rarity"></td>
+                <td><input type="text" id="family"></td>
+                <td><button onclick="addAnimal()" type="button" class="btn btn-success">Add</button></td>
+            </form>
+        </tr>
+        </div>
+    </main>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
