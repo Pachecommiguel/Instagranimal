@@ -55,24 +55,42 @@
 
         </div>
         <div>
-        <tr class="form">
-            <th>Animal URL</th>
-            <th>Specie</th>
-            <th>Location</th>
-            <th>Rarity</th>
-            <th>family</th>
-        </tr>
-        <tr>
-            <form id="form">
-                <td><input type="text" id="photoLink"></td>
-                <td><input type="text" id="species"></td>
-                <td><input type="text" id="photoLocation"></td>
-                <td><input type="text" id="rarity"></td>
-                <td><input type="text" id="family"></td>
-                <td><button onclick="addAnimal()" type="button" class="btn btn-success">Add</button></td>
+            <form class="form-horizontal">
+                <input type="hidden" id="id" />
+
+                <div class="col-md-3 mb-3">
+                    <label for="photoLink" class="control-label">Photo Link:</label>
+                    <input type="text" id="photoLink" class="form-control">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="species" class="control-label">Specie:</label>
+                    <input type="text" id="species" class="form-control">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="photoLocation" class="control-label">Photo Location:</label>
+                    <input type="text" id="email" class="form-control" w>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="rarity" class="control-label">Rarity:</label>
+                    <select class="form-control" id="rarity">
+                        <option>LEGENDARY</option>
+                        <option>EPIC</option>
+                        <option>RARE</option>
+                        <option>COMMON</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="family" class="control-label">Family:</label>
+                    <input type="text" id="family" class="form-control" placeholder="Reptile, Anphibian, Bird, Mammal, etc">
+                </div>
             </form>
-        </tr>
         </div>
+
+        <div class="addAnimal" style="margin-top: 100px"></div>
+
+
+
+
     </main>
 
     <script src="./index.js"></script>

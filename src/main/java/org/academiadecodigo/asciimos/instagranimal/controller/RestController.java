@@ -108,6 +108,8 @@ public class RestController {
     @PostMapping(path = "/animal/add")
     public ResponseEntity<?> addAnimal(@Valid @RequestBody AnimalDto animalDto, BindingResult binding) {
 
+        System.out.println(animalDto);
+
         User user = userService.getUser(animalDto.getUsername());
 
 
