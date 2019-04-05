@@ -23,7 +23,7 @@ function refreshHomePage() {
 
 
     $.ajax({
-        url: 'http://192.168.1.28:8080/instagranimal/api/user/miguel',
+        url: 'http://192.168.1.28:8080/instagranimal/api/user/magno',
         async: true,
         success: successCallback,
         error: errorCallback
@@ -38,7 +38,7 @@ function showHome(response) {
 
 function showUserHome(user) {
     $('.profile-user-name').append('<p id="' + user.username + '">' + user.username + '</p>')
-    $('.profile-user-rating').append('<p>Rating ' + user.rating + '</p>');
+    $('.fa').append(user.rating + '</p>');
 }
 
 function addPhotos(animals) {
