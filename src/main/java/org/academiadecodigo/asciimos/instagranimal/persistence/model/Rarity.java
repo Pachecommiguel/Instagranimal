@@ -21,8 +21,15 @@ public enum Rarity {
         switch (text) {
             case "LEGENDARY":
                 return LEGENDARY;
+            case "EPIC":
+                return EPIC;
+            case "RARE":
+                return RARE;
+            case "COMMON":
+                return COMMON;
+            default:
+                return null;
         }
-        return null;
     }
 
     public int getValue() {
