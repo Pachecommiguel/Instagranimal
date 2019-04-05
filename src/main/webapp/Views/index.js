@@ -10,7 +10,8 @@ function refreshHomePage() {
 
 
     function successCallback(response) {
-        user=response.username
+        user=response.username;
+        console.log(user);
         showHome(response)
         addPhotos(response.animals)
     }
@@ -39,11 +40,10 @@ function showUserHome(user) {
 function addPhotos(animals) {
 
     $('.gallery').append(animals.map(function (value, index) {
-        return '<div class="gallery-item" tabindex="' + index + '"><img src="' + value.photoLink + '" class="gallery-image">' +
+        return '<div class="gallery-item" id="tabindex' + index + '"><img src="' + value.photoLink + '" class="gallery-image">' +
             '<div class="gallery-item-info">' +
             '<ul><li class="gallery-item-likes"><span class="visually-hidden"></span><i aria-hidden="true"></i>' + value.photoLocation + '</li>'
             + '<li class="gallery-item-comments"><span class="visually-hidden"></span><i aria-hidden="true"></i>' + value.family + '</li></ul></div></div>'
-
     }).join(''))
 }
 
@@ -52,18 +52,25 @@ function addPhotos(animals) {
 function addAnimal() {
 
     function successCallback(response) {
-        refreshHomePage(response)
+        $('.profile-user-name').empty();
+        $('.profile-user-rating').empty();
+        $('.gallery').empty()
+
+        showHome(response);
+        addPhotos(response.animals);
     }
 
     function errorCallback(request, status, error) {
-        console.log(request + status + error)
+        console.log(request)
+        console.log(status)
+        console.log(error)
     }
 
     $.ajax({
         url: 'http://192.168.1.28:8080/instagranimal/api/user/animal/add',
         type: 'POST',
         data: JSON.stringify({
-            username: user.username,
+            username: user,
             [$('#species').prop('id')]: $('#species').val(),
             [$('#photoLink').prop('id')]: $('#photoLink').val(),
             [$('#photoLocation').prop('id')]: $('#photoLocation').val(),

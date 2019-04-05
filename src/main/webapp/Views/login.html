@@ -20,13 +20,33 @@
 
 <body>
 
-    <form class="form">
+    <form class="loginForm">
         <td><input type="text" id="login"></td>
-        <td><button onclick="refreshHomePage($('.form').val())" type="button" class="btn btn-primary"></button></td>
+        <td><button onclick="refreshHomePage($('.form').val())" type="button" class="btn btn-primary">Login</button></td>
+
     </form>
+    <form class="signUpForm">
+        <table class="table">
+        <tr>
+            <td>UserName</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+        </tr>
+        <tr>
+        <td><input type="text" id="username"></td>
+        <td><input type="text" id="firstName"></td>
+        <td><input type="text" id="lastName"></td>
+        <td><input type="text" id="email"></td>
+        <td><input type="text" id="phone"></td>
+        </tr>
+    </table>
+    <td><button onclick="createUser()" type="button" class="btn btn-primary">Sign Up</button></td>
+    </form>
+    
 
 </body>
 <script src="./login.js"></script>
-<script src="./index.js"></script>
 
 </html>
