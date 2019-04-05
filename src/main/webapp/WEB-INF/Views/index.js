@@ -3,6 +3,9 @@ var user;
 $(document).ready(function () {
 
     refreshHomePage()
+
+    var button = '<button class="btn btn-success" id="add" onclick="addAnimal()>Add Animal</button>';
+    $(button).appendTo('.addAnimal');
 });
 
 
@@ -25,6 +28,7 @@ function refreshHomePage() {
         success: successCallback,
         error: errorCallback
     });
+
 }
 
 function showHome(response) {
@@ -46,7 +50,6 @@ function addPhotos(animals) {
             + '<li class="gallery-item-family"><span class="visually-hidden"></span><i aria-hidden="true"></i>' + value.family + '</li></ul></div></div>'
     }).join(''))
 }
-
 
 
 function addAnimal() {
