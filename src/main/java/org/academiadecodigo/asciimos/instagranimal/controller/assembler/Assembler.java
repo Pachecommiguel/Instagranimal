@@ -3,8 +3,8 @@ package org.academiadecodigo.asciimos.instagranimal.controller.assembler;
 
 import org.academiadecodigo.asciimos.instagranimal.controller.dto.AnimalDto;
 import org.academiadecodigo.asciimos.instagranimal.controller.dto.UserDto;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.Animal;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.User;
 import org.springframework.stereotype.Service;
 
 @Service

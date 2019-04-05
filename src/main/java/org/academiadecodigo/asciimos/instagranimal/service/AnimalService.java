@@ -1,7 +1,7 @@
 package org.academiadecodigo.asciimos.instagranimal.service;
 
 import org.academiadecodigo.asciimos.instagranimal.persistence.dao.AnimalDao;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

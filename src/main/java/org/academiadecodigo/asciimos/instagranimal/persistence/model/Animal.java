@@ -1,9 +1,7 @@
-package org.academiadecodigo.asciimos.instagranimal.persistence.model.animal;
+package org.academiadecodigo.asciimos.instagranimal.persistence.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.Rarity;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
 
 import javax.persistence.*;
 

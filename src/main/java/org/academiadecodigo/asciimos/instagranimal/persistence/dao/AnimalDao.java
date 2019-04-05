@@ -1,6 +1,6 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.dao;
 
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.Animal;
 import org.springframework.stereotype.Repository;
 
 @Repository

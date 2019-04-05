@@ -1,7 +1,6 @@
-package org.academiadecodigo.asciimos.instagranimal.persistence.model.user;
+package org.academiadecodigo.asciimos.instagranimal.persistence.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -94,26 +93,41 @@ public class User {
         this.rating = rating;
     }
 
-    @JsonIgnore
     public Set<Animal> getAnimals() {
         return animals;
     }
 
     public void addAnimal(Animal animal) {
+
+        if (hasSpecies(animal)) {
+            return;
+        }
         animals.add(animal);
         rating += animal.getRarity().getValue();
+
     }
 
 
-    public Animal getAnimal(Integer id){
+    public Animal getAnimal(Integer id) {
 
         for (Animal animal : animals) {
-            if(animal.getId().equals(id)) {
+            if (animal.getId().equals(id)) {
                 return animal;
             }
         }
 
         return null;
     }
+
+    private boolean hasSpecies(Animal toCompare) {
+        for (Animal animal : animals) {
+            if (animal.getSpecies().equals(toCompare.getSpecies())) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
 
 }

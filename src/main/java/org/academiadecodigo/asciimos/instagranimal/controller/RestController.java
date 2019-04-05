@@ -4,18 +4,15 @@ package org.academiadecodigo.asciimos.instagranimal.controller;
 import org.academiadecodigo.asciimos.instagranimal.controller.assembler.Assembler;
 import org.academiadecodigo.asciimos.instagranimal.controller.dto.AnimalDto;
 import org.academiadecodigo.asciimos.instagranimal.controller.dto.UserDto;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.animal.Animal;
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.Animal;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.User;
 import org.academiadecodigo.asciimos.instagranimal.service.AnimalService;
 import org.academiadecodigo.asciimos.instagranimal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 

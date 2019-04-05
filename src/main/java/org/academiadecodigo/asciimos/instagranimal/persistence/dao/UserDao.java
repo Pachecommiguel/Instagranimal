@@ -1,6 +1,6 @@
 package org.academiadecodigo.asciimos.instagranimal.persistence.dao;
 
-import org.academiadecodigo.asciimos.instagranimal.persistence.model.user.User;
+import org.academiadecodigo.asciimos.instagranimal.persistence.model.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
