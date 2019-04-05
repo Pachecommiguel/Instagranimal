@@ -24,9 +24,18 @@ function refreshHomePage() {
     function errorCallback(request, status, error) { }
 
 
+<<<<<<< HEAD
     //getUser(successCallback, errorCallback)
 };
 
+=======
+    $.ajax({
+        url: 'http://192.168.1.28:8080/instagranimal/api/user/magno',
+        async: true,
+        success: successCallback,
+        error: errorCallback
+    });
+>>>>>>> master
 
 
 function showHome(response) {
@@ -36,7 +45,7 @@ function showHome(response) {
 
 function showUserHome(user) {
     $('.profile-user-name').append('<p id="' + user.username + '">' + user.username + '</p>')
-    $('.profile-user-rating').append('<p>Rating ' + user.rating + '</p>');
+    $('.fa').append(user.rating + '</p>');
 }
 
 function addPhotos(animals) {
