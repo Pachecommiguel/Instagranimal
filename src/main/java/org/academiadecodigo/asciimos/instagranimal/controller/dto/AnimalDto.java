@@ -82,4 +82,16 @@ public class AnimalDto {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    @Override
+    public String toString() {
+        return "AnimalDto{" +
+                "username='" + username + '\'' +
+                ", species='" + species + '\'' +
+                ", photoLink='" + photoLink + '\'' +
+                ", photoLocation='" + photoLocation + '\'' +
+                ", family='" + family + '\'' +
+                ", rarity=" + rarity +
+                '}';
+    }
 }
