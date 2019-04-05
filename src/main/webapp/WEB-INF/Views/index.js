@@ -1,11 +1,15 @@
-var user;
-
 $(document).ready(function () {
 
-    refreshHomePage()
+    var user = JSON.parse(window.localStorage.getItem('user'));
 
-    var button = '<button class="btn btn-success" id="add" onclick="addAnimal()>Add Animal</button>';
-    $(button).appendTo('.addAnimal');
+    if (!user) {
+        window.location.replace('./userList.html');
+        return;
+    }
+
+    showHome(user);
+    addPhotos(user.animals);
+
 });
 
 
@@ -13,8 +17,6 @@ function refreshHomePage() {
 
 
     function successCallback(response) {
-        user=response.username;
-        console.log(user);
         showHome(response)
         addPhotos(response.animals)
     }
@@ -22,14 +24,10 @@ function refreshHomePage() {
     function errorCallback(request, status, error) { }
 
 
-    $.ajax({
-        url: 'http://192.168.1.28:8080/instagranimal/api/user/miguel',
-        async: true,
-        success: successCallback,
-        error: errorCallback
-    });
+    //getUser(successCallback, errorCallback)
+};
 
-}
+
 
 function showHome(response) {
 
@@ -61,6 +59,8 @@ function addAnimal() {
 
         showHome(response);
         addPhotos(response.animals);
+        console.log(response);
+
     }
 
     function errorCallback(request, status, error) {
@@ -73,7 +73,7 @@ function addAnimal() {
         url: 'http://192.168.1.28:8080/instagranimal/api/user/animal/add',
         type: 'POST',
         data: JSON.stringify({
-            username: user,
+            username: JSON.parse(window.localStorage.getItem('user')).username,
             [$('#species').prop('id')]: $('#species').val(),
             [$('#photoLink').prop('id')]: $('#photoLink').val(),
             [$('#photoLocation').prop('id')]: $('#photoLocation').val(),
@@ -85,4 +85,13 @@ function addAnimal() {
         success: successCallback,
         error: errorCallback
     });
+}
+
+
+function successCallback(response) { //the data I'm requesting with the get comes already in array format
+    console.log(response);
+    // this should be renamed, can not use the same for all requests and in here it should render the user profile???
+}
+function errorCallback(request, status, error) {
+
 }

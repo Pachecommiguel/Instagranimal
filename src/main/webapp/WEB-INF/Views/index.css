@@ -221,6 +221,22 @@ img {
     object-fit: cover;
 }
 
+
+.form {
+    margin-left: 390px;
+}
+
+.addButton {
+    margin-left: 405px;
+    margin-top: 20px;
+}
+
+
+.usersList {
+    margin-left: 405px;
+    margin-top: 20px;
+}
+
 /* Loader */
 
 .loader {

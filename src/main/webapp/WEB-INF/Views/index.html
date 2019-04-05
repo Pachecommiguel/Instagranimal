@@ -54,7 +54,7 @@
             </div>
 
         </div>
-        <div>
+        <div class="form">
             <form class="form-horizontal">
                 <input type="hidden" id="id" />
 
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="photoLocation" class="control-label">Photo Location:</label>
-                    <input type="text" id="email" class="form-control" w>
+                    <input type="text" id="photoLocation" class="form-control" w>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="rarity" class="control-label">Rarity:</label>
@@ -84,9 +84,12 @@
                     <input type="text" id="family" class="form-control" placeholder="Reptile, Anphibian, Bird, Mammal, etc">
                 </div>
             </form>
-        </div>
 
-        <div class="addAnimal" style="margin-top: 100px"></div>
+        </div>
+        <div class="addButton"><button class="btn btn-success" id="add" onclick="addAnimal()">Add Animal</button></div>
+
+        <div class="usersList"><a class="btn btn-primary" href="userList.html">Users List</a></div>
+
 
 
 

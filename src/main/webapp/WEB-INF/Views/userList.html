@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          modelType="text/css"/>
+
+    <script modelType="application/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script modelType="application/javascript" async
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--jQuery Library import-->
+    <title>JavaBank</title>
+</head>
+
+<body>
+</br>
+
+<div class="container">
+    </br>
+    <div>
+        <h1>InstagrAnimal</h1>
+    </div>
+
+</div>
+
+</br>
+
+<div class="container">
+
+    <div>
+        <h2>Top:</h2>
+    </div>
+
+    </br>
+
+    <div>
+        <table id="users-table" class="table table-striped">
+            <tr>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Rating</th>
+                <th>Collection</th>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script src="./userList.js"></script>
+<script>
+
+    $(document).ready(function () {
+        getUsers();
+    });
+
+</script>
+
+</body>
+
+</html>
