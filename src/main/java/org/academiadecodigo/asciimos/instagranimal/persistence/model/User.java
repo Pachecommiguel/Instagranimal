@@ -99,9 +99,9 @@ public class User {
 
     public void addAnimal(Animal animal) {
 
-        if (hasSpecies(animal)) {
+        /*if (hasSpecies(animal)) {
             return;
-        }
+        }*/
         animals.add(animal);
         rating += animal.getRarity().getValue();
 

@@ -19,7 +19,7 @@ public class UserDao extends AbstractDao<User> {
         em.remove(findByUsername(username));
     }
 
-    public void saveUser(User user) {
-        em.merge(user);
+    public User saveUser(User user) {
+        return em.merge(user);
     }
 }

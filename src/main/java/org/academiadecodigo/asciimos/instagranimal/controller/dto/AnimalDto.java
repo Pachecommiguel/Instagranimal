@@ -2,9 +2,16 @@ package org.academiadecodigo.asciimos.instagranimal.controller.dto;
 
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.Rarity;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class AnimalDto {
+
+    @NotNull
+    @NotBlank
+    @Size(min=3, max=64)
+    private String username;
 
     @NotNull
     @NotBlank
@@ -68,5 +75,11 @@ public class AnimalDto {
         this.rarity = rarity;
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

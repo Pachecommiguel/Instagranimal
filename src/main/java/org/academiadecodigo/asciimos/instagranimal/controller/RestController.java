@@ -2,8 +2,8 @@ package org.academiadecodigo.asciimos.instagranimal.controller;
 
 
 import org.academiadecodigo.asciimos.instagranimal.controller.assembler.Assembler;
-import org.academiadecodigo.asciimos.instagranimal.controller.dto.AnimalDto;
 import org.academiadecodigo.asciimos.instagranimal.controller.dto.UserDto;
+import org.academiadecodigo.asciimos.instagranimal.controller.dto.AnimalDto;
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.Animal;
 import org.academiadecodigo.asciimos.instagranimal.persistence.model.User;
 import org.academiadecodigo.asciimos.instagranimal.service.AnimalService;
@@ -36,7 +36,7 @@ public class RestController {
     }
 
     @Autowired
-    public void setAssembler(Assembler assembler){
+    public void setAssembler(Assembler assembler) {
         this.assembler = assembler;
     }
 
@@ -105,10 +105,11 @@ public class RestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PostMapping(path = "/{username}/animal/add")
-    public ResponseEntity<?> addAnimal(@PathVariable("username") String username, @Valid @RequestBody AnimalDto animalDto, BindingResult binding) {
+    @PostMapping(path = "/animal/add")
+    public ResponseEntity<?> addAnimal(@Valid @RequestBody AnimalDto animalDto, BindingResult binding) {
 
-        User user = userService.getUser(username);
+        User user = userService.getUser(animalDto.getUsername());
+
 
         if (binding.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -123,11 +124,36 @@ public class RestController {
         user.addAnimal(assembler.getAnimal(animalDto, animal));
         animal.setUser(user);
 
-        userService.saveUser(user);
+        user = userService.saveUser(user);
 
 
-
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
 
     }
+
+
+    @PutMapping(path = "/edit")
+    public ResponseEntity<?> editUser(@Valid @RequestBody UserDto userDto, BindingResult binding) {
+
+        User edited = userService.getUser(userDto.getUsername());
+
+        if (binding.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if (userDto.getUsername() == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        edited.setFirstName(userDto.getFirstName());
+        edited.setLastName(userDto.getLastName());
+        edited.setEmail(userDto.getEmail());
+        edited.setPhone(userDto.getPhone());
+
+        userService.saveUser(edited);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 }
