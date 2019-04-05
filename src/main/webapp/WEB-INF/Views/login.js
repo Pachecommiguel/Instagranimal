@@ -1,8 +1,9 @@
-
 function homePage() {
 
-    function successCallback(response) {
-        window.location.replace = "file:///Users/codecadet/Desktop/Hackathon/hack/src/main/webapp/Views/index.html";
+    function successCallback(r) {
+        response = r;
+        window.localStorage.setItem('myUser', JSON.stringify(response));
+        window.location.replace("./index.html");
     }
 
     function errorCallback(request, status, error) { }

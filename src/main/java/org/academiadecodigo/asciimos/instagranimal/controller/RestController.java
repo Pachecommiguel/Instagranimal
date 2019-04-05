@@ -9,10 +9,13 @@ import org.academiadecodigo.asciimos.instagranimal.persistence.model.User;
 import org.academiadecodigo.asciimos.instagranimal.service.AnimalService;
 import org.academiadecodigo.asciimos.instagranimal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 
@@ -51,14 +54,21 @@ public class RestController {
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/{username}")
-    public ResponseEntity<?> getUser(@PathVariable("username") String username) {
+    @GetMapping(path = "/")
+    public ResponseEntity<?> getUser(@Valid @RequestBody User user, BindingResult bindingResult, UriComponentsBuilder builder) {
 
-        if (userService.getUser(username) == null) {
+        if (userService.getUser(user.getUsername()) == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(userService.getUser(username), HttpStatus.OK);
+        UriComponents component = builder
+                .path("/api/user/" + user.getUsername())
+                .build();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(component.toUri());
+
+        return new ResponseEntity<>(userService.getUser(user.getUsername()), headers, HttpStatus.OK);
     }
 
     @GetMapping(path = "/{username}/animal/list")

@@ -1,29 +1,23 @@
-var user;
-
 $(document).ready(function () {
-
-    refreshHomePage()
-
+    refreshHomePage();
     var button = '<button class="btn btn-success" id="add" onclick="addAnimal()>Add Animal</button>';
     $(button).appendTo('.addAnimal');
 });
-
 
 function refreshHomePage() {
 
 
     function successCallback(response) {
-        user=response.username;
-        console.log(user);
         showHome(response)
         addPhotos(response.animals)
     }
 
     function errorCallback(request, status, error) { }
 
+    var user = JSON.parse(window.localStorage.getItem('myUser'));
 
     $.ajax({
-        url: 'http://192.168.1.28:8080/instagranimal/api/user/miguel',
+        url: 'http://192.168.1.28:8080/instagranimal/api/user/' + user.username,
         async: true,
         success: successCallback,
         error: errorCallback
